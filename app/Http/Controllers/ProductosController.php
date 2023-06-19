@@ -41,13 +41,15 @@ class ProductosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreProductosRequest $request)
-    {
-      
+    { 
+     
       if($request->validated()){
+        $request->file('archivo')->store('public');
         $this->productos->create([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
-            'cantidad'=>$request->cantidad
+            'cantidad'=>$request->cantidad,
+            'archivo'=>$request->file('archivo')->store('public')
         ]);
         return back()->with('success','Producto guardado correctamente');
       }else{
@@ -93,11 +95,12 @@ class ProductosController extends Controller
         $producto = $this->productos->find($id);
          
       if($request->validated()){
-
+        $request->file('archivo')->store('public');
         $producto->update([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
-            'cantidad'=>$request->cantidad
+            'cantidad'=>$request->cantidad,
+            'archivo'=>$request->file('archivo')->store('public')
         ]);
 
         return back()->with('success','Producto actualizado correctamente');

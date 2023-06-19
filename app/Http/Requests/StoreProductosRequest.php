@@ -28,7 +28,7 @@ class StoreProductosRequest extends FormRequest
             'nombre' => 'required|max:255',
             'precio' => 'required|numeric|between:0,9999999999.99',
             'cantidad' => 'required|numeric|between:0,9999999999',
-           
+            'archivo'=>'file|max:10240|mimes:png,jpg,pdf'
         ];
     }
 
@@ -40,6 +40,7 @@ class StoreProductosRequest extends FormRequest
             'cantidad.required' => 'Cantidad de producto requerido.',
             'precio.numeric' => 'Precio debe ser numerico.',
             'cantidad.numeric' => 'Cantidad debe ser numerico.',
+            'archivo.max'=>'Archivo excede los 10 MB'
         ];
     }
 }

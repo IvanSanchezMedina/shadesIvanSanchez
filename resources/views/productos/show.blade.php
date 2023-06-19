@@ -30,6 +30,15 @@
                         </li>
                         <li>
                             <a class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Archivo:</a>
+                            @if (pathinfo($producto->archivo, PATHINFO_EXTENSION) =='jpg' || pathinfo($producto->archivo, PATHINFO_EXTENSION) =='png')
+                                <img src="{{ Storage::url($producto->archivo) }}" width="50%" alt="">
+                            @else
+                          <iframe src="{{ Storage::url($producto->archivo) }}"
+                                style="width:600px; height:500px;" frameborder="0"></iframe>
+
+                            @endif
+                           
+                     
 
                         </li>
                     </ul>
