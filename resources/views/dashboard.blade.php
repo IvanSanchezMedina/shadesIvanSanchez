@@ -84,18 +84,19 @@
 
 
                     <div class="relative overflow-x-auto p-6">
-                      
+
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                       Nombre de producto
+                                        Nombre de producto
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                      Precio
+                                        Precio
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                     Cantidad
+                                        Cantidad
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Archivo
@@ -107,30 +108,32 @@
                             </thead>
                             <tbody>
                                 @foreach ($listaProductos as $producto)
-                        
-                              
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{$producto->nombre}}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{$producto->precio}}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{$producto->cantidad}}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    archivo
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        agregar o eliminar
-                                    </td>
-                                </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $producto->nombre }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ $producto->precio }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $producto->cantidad }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            archivo
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="{{ route('show.product',$producto->id) }}" type="button"
+                                                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ver
+                                                Producto</a>
+                                            agregar o eliminar
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                    
+
 
                 </div>
             </div>

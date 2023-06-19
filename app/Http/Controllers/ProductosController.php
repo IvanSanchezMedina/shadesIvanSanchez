@@ -57,7 +57,8 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = $this->productos->find($id);
+        return view('productos.show',compact('producto'));
     }
 
     /**
