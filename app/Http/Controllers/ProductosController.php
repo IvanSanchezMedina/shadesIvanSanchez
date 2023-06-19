@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Productos;
+use App\Http\Requests\StoreProductosRequest;
+use Illuminate\Support\MessageBag;
 class ProductosController extends Controller
 {
     private $productos;
+    
     public function __construct( Productos $productos){
         $this->productos = $productos;
     }
@@ -37,16 +40,21 @@ class ProductosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductosRequest $request)
     {
       
+      if($request->validated()){
         $this->productos->create([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
             'cantidad'=>$request->cantidad
         ]);
+        return back()->with('success','Producto guardado correctamente');
+      }else{
+        return back()->with('error',$request->validated());
+      }
+        
 
-        return redirect()->back();
     }
 
     /**
@@ -80,15 +88,25 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductosRequest $request, $id)
     {
         $producto = $this->productos->find($id);
+         
+      if($request->validated()){
+
         $producto->update([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
             'cantidad'=>$request->cantidad
         ]);
-        return view('productos.edit',compact('producto'));
+
+        return back()->with('success','Producto actualizado correctamente');
+
+      }else{
+
+        return back()->with('error',$request->validated());
+      }
+        // return view('productos.edit',compact('producto'));
     }
 
     /**
