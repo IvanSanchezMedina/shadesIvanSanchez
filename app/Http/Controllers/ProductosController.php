@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Productos;
 class ProductosController extends Controller
 {
+    private $productos;
+    public function __construct( Productos $productos){
+        $this->productos = $productos;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,8 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+        $listaProductos = $this->productos->all();
+        return view('dashboard', compact('listaProductos'));
     }
 
     /**
@@ -34,7 +39,14 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        $this->productos->create([
+            'nombre'=>$request->nombre,
+            'precio'=>$request->precio,
+            'cantidad'=>$request->cantidad
+        ]);
+
+        return redirect()->back();
     }
 
     /**
