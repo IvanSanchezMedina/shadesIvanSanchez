@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Http\Requests\StoreProductosRequest;
-use Illuminate\Support\MessageBag;
 class ProductosController extends Controller
 {
     private $productos;
@@ -92,10 +91,17 @@ class ProductosController extends Controller
      */
     public function update(StoreProductosRequest $request, $id)
     {
+ 
         $producto = $this->productos->find($id);
-         
+      
       if($request->validated()){
-        $request->file('archivo')->store('public');
+        // if( $request->hasFile('archivo')){
+        //   $request->file('archivo')->store('public');
+        //     if(File::exists($producto->archivo)){
+        //       File::delete($producto->archivo);
+        //     }
+        // }
+       
         $producto->update([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
@@ -109,7 +115,7 @@ class ProductosController extends Controller
 
         return back()->with('error',$request->validated());
       }
-        // return view('productos.edit',compact('producto'));
+       
     }
 
     /**

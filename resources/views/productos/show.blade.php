@@ -13,7 +13,6 @@
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regresar</a>
 
 
-
                     <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Password requirements:</h2>
                     <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                         <li>
@@ -30,15 +29,13 @@
                         </li>
                         <li>
                             <a class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Archivo:</a>
-                            @if (pathinfo($producto->archivo, PATHINFO_EXTENSION) =='jpg' || pathinfo($producto->archivo, PATHINFO_EXTENSION) =='png')
+                            @if (pathinfo($producto->archivo, PATHINFO_EXTENSION) == 'jpg' ||
+                                    pathinfo($producto->archivo, PATHINFO_EXTENSION) == 'png')
                                 <img src="{{ Storage::url($producto->archivo) }}" width="50%" alt="">
                             @else
-                          <iframe src="{{ Storage::url($producto->archivo) }}"
-                                style="width:600px; height:500px;" frameborder="0"></iframe>
-
+                                <iframe src="{{ Storage::url($producto->archivo) }}" style="width:600px; height:500px;"
+                                    frameborder="0"></iframe>
                             @endif
-                           
-                     
 
                         </li>
                     </ul>
