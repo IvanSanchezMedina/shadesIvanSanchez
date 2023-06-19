@@ -69,7 +69,8 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = $this->productos->find($id);
+        return view('productos.edit',compact('producto'));
     }
 
     /**
@@ -81,7 +82,13 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = $this->productos->find($id);
+        $producto->update([
+            'nombre'=>$request->nombre,
+            'precio'=>$request->precio,
+            'cantidad'=>$request->cantidad
+        ]);
+        return view('productos.edit',compact('producto'));
     }
 
     /**
