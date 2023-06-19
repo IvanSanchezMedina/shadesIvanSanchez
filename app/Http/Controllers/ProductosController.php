@@ -99,6 +99,8 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = $this->productos->find($id);
+        $producto->delete();
+        return redirect()->back();
     }
 }

@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('show/product/{id}', 'show')->name('show.product');
         Route::get('edit/product/{id}', 'edit')->name('edit.product');
         Route::post('update/product/{id}', 'update')->name('update.product');
-        
+        Route::get('destroy/product/{id}', 'destroy')->name('destroy.product');
     });
 });
 require __DIR__.'/auth.php';
