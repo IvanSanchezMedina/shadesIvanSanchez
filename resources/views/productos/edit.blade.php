@@ -158,7 +158,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="mb-6">
+                             <div class="mb-6">
                                 <label 
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Archivo</label>
                                     @if (pathinfo($producto->archivo, PATHINFO_EXTENSION) == 'jpg' ||

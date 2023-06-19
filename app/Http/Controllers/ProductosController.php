@@ -96,17 +96,17 @@ class ProductosController extends Controller
       
       if($request->validated()){
         // if( $request->hasFile('archivo')){
-        //   $request->file('archivo')->store('public');
-        //     if(File::exists($producto->archivo)){
-        //       File::delete($producto->archivo);
-        //     }
-        // }
+        //   $request->file('archivoo')->store('public');
+        // //     if(File::exists($producto->archivo)){
+        // //       File::delete($producto->archivo);
+        // //     }
+        // // }
        
         $producto->update([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
             'cantidad'=>$request->cantidad,
-            'archivo'=>$request->file('archivo')->store('public')
+            //  'archivo'=>$request->file('archivoo')->store('public')
         ]);
 
         return back()->with('success','Producto actualizado correctamente');
