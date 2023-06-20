@@ -43,12 +43,15 @@ class ProductosController extends Controller
     { 
      
       if($request->validated()){
-        $request->file('archivo')->store('public');
+        if(isset($request->archivo )){
+            $request->file('archivo')->store('public');
+        }
+      
         $this->productos->create([
             'nombre'=>$request->nombre,
             'precio'=>$request->precio,
             'cantidad'=>$request->cantidad,
-            'archivo'=>$request->file('archivo')->store('public')
+            'archivo'=>isset($request->archivo ) ? $request->file('archivo')->store('public') : '',
         ]);
         return back()->with('success','Producto guardado correctamente');
       }else{

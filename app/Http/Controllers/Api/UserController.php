@@ -25,6 +25,7 @@ class UserController extends Controller
             'name' => 'required', 
             'email' => 'required|email|unique:users', 
             'password' => 'required', 
+            'edad'=>'required|integer'
         ]);
 
         if ($validator->fails()) { 
@@ -33,12 +34,14 @@ class UserController extends Controller
         $user = $this->user->create([
             'name' => $request->name,
             'email' => $request->email,
+            'edad' => $request->edad,
             'password' => Hash::make($request->password),
         ]);
        
         $success['id'] =  $user->id;
         $success['name'] =  $user->name;
         $success['email'] =  $user->email;
+        $success['edad'] =  $user->edad;
         return response()->json(['success'=>$success], 200); 
     }
 
@@ -69,7 +72,8 @@ class UserController extends Controller
         $validator = $this->validator::make($request->all(), [ 
             'id' => 'required|integer|exists:users', 
             'name' => 'string', 
-            'email' => 'mail|unique:users', 
+            'email' => 'mail|unique:users',  
+            'edad'=>'required|integer'
         ]);
 
         if ($validator->fails()) { 
@@ -79,6 +83,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name ? $request->name :$user->name,
             'email' => $request->email  ? $request->email :$user->email,
+            'edad' => $request->edad  ? $request->edad :$user->edad,
             'password' => $request->password  ? Hash::make($request->password) :$user->password,
         ]);
        
