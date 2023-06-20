@@ -16,14 +16,7 @@ use App\Http\Controllers\ProductosController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-
  
-
 Route::middleware(['auth'])->group(function () {
     // Route::post('store/product','ProductosController@store')->name('store.product');
     Route::controller(ProductosController::class)->group(function () {
