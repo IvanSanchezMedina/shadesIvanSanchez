@@ -9,11 +9,15 @@ class ProductosController extends Controller
 {
     private $productos;
     
+    //funcion construct para ejecutar instacinas
+
     public function __construct( Productos $productos){
         $this->productos = $productos;
     }
+
     /**
-     * Display a listing of the resource.
+     * Muestra la lista de productos y se pasan
+     * como parametros a la vista listaProductos.
      *
      * @return \Illuminate\Http\Response
      */
@@ -34,7 +38,8 @@ class ProductosController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Se registran los valores ingresados en el formulario
+     * se realiza validacion con respuesta en caso de error.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -62,7 +67,8 @@ class ProductosController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra vista especifica basada en
+     * producto seleccionado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -74,7 +80,8 @@ class ProductosController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra la vista para editar con los datos precargados
+     * en el formulario.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -86,7 +93,7 @@ class ProductosController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los datos del formulario y vallida el request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -122,7 +129,7 @@ class ProductosController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     *Se elimina un producto recibiendo como parametro Id.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

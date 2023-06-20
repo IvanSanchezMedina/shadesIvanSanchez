@@ -13,11 +13,22 @@ class UserController extends Controller
     private $user;
     private $validator;
 
-
+    //Constructor para llamado de instancias
     public function __construct(User $user, Validator $validator){
         $this->user = $user;
         $this->validator = $validator;
     }
+
+     /** 
+     * Funcion para registrar usuario mediante llamado de api,
+     * Se ejecuta validacion previa 
+     * @param desde Request
+     * @param  string  $name,
+     * @param  string  $email,
+     * @param  string  $password,
+     * @param  int     $edad(solo para consulta de prueba tecnica),
+     * @return \Illuminate\Http\Response 
+     */ 
     
     public function register(Request $request) 
     { 
@@ -46,8 +57,10 @@ class UserController extends Controller
     }
 
     /** 
-     * details api 
-     * 
+     * Funcion para consultar un usuario mediante llamado de api,
+     * Se ejecuta validacion previa 
+     * @param desde Request
+     * @param  int     $id,
      * @return \Illuminate\Http\Response 
      */ 
     public function getUser($id) 
@@ -61,12 +74,18 @@ class UserController extends Controller
         return response()->json(['success'=>$success], 200); 
     } 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     /** 
+     * Funcion para actualizar usuario mediante llamado de api,
+     * Se ejecuta validacion previa 
+     * @param desde Request
+     * @param  int     $id,
+     * @param  string  $name,
+     * @param  string  $email,
+     * @param  string  $password,
+     * @param  int     $edad(solo para consulta de prueba tecnica),
+     * @return \Illuminate\Http\Response 
+     */ 
+    
     public function updateUser(Request $request) 
     { 
         $validator = $this->validator::make($request->all(), [ 
@@ -92,12 +111,13 @@ class UserController extends Controller
         return response()->json(['success'=>$success], 200); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  /** 
+     * Funcion para eliminar usuario mediante llamado de api,
+     * Se ejecuta validacion previa 
+     * @param desde Request
+     * @param  int     $id,
+     * @return \Illuminate\Http\Response 
+     */ 
     public function deleteUser($id) 
     { 
         $user = $this->user->find($id);

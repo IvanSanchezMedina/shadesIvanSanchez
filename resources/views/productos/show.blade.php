@@ -14,6 +14,8 @@
 
 
                     <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Password requirements:</h2>
+                      <!-- Listado de informacion de producto se muestran, Nombre, Precio, Cantidad, y archivo, 
+                    el archivo se visualiza ya se imagen o pdf-->
                     <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                         <li>
                             <a class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Nombre de producto:</a>
@@ -28,6 +30,7 @@
                             {{ $producto->cantidad }}
                         </li>
                         <li>
+                              <!-- Visualizacion de archivo segun su extension-->
                             <a class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Archivo:</a>
                             @if (pathinfo($producto->archivo, PATHINFO_EXTENSION) == 'jpg' ||
                                     pathinfo($producto->archivo, PATHINFO_EXTENSION) == 'png')

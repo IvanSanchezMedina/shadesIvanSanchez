@@ -19,8 +19,9 @@
                         <div class="p-6 space-y-6">
 
                             @csrf
+                              <!-- Inputo Nombre de Producto, validacion de input y class error-->
                             <div class="mb-6">
-                                <label for="precio"
+                                <label for="nombre"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
                                 <input type="text" id="nombre" name="nombre" value="{{$producto->nombre}}"
                                     class="  @error('nombre') is-invalid @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -53,6 +54,7 @@
                                     </div>
                                 @enderror
                             </div>
+                              <!-- Inputo Precio de Producto, validacion de input y class error-->
                             <div class="mb-6">
                                 <label for="precio"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio</label>
@@ -87,6 +89,7 @@
                                     </div>
                                 @enderror
                             </div>
+                              <!-- Inputo Cantidad de Producto, validacion de input y class error-->
                             <div class="mb-6">
                                 <label for="cantidad"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad</label>
@@ -121,7 +124,7 @@
                                     </div>
                                 @enderror
                             </div>
-                           
+                             <!-- Inputo cargar archivo de Producto, validacion de input y class error-->
                             <div class="mb-6">
 
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -158,6 +161,7 @@
                                     </div>
                                 @enderror
                             </div>
+                            <!-- Bloque para mostrar archivo ya sea imagen o PDF-->
                              <div class="mb-6">
                                 <label 
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Archivo</label>

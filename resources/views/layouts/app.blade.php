@@ -15,16 +15,16 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        {{-- Require the following minified stylesheet inside the head tag: --}}
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-{{-- And include the following JavaScript file before the end of the body element: --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
+            
+            <!-- Se realiza el llamado de los mensajes para mostrar cuando se ejecuten-->
             @include('flash-message')
             <!-- Page Heading -->
             <header class="bg-white shadow">

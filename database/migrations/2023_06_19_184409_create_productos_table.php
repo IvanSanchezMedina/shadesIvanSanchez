@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Schema;
 class CreateProductosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations
+     * se agregaron campos nombre,precio,cantidad,archivo.
      *
      * @return void
      */

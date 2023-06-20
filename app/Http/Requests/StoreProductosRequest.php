@@ -13,16 +13,18 @@ class StoreProductosRequest extends FormRequest
      */
     public function authorize()
     {
+        //se cambio a true para poder ejecutar este Request y validar.
         return true;
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * //Reglas de validacion para Request al registrar producto.
      *
      * @return array
      */
     public function rules()
     {
+        //Reglas de validacion para Request al registrar producto
         return [
         
             'nombre' => 'required|max:255',
@@ -32,6 +34,11 @@ class StoreProductosRequest extends FormRequest
         ];
     }
 
+    /**
+     * Mensajes en caso de error basado en las validaciones y datos recibidos.
+     *
+     * @return array
+     */
     public function messages()
     {
         return [
