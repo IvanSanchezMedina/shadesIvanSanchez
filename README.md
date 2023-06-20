@@ -9,6 +9,12 @@ A continuacion dependencias utilizadas.
 - Laravel Breeze (para autenticacion).
 
 
+- ## Prueba Técnica - PHP
+
+Archivo con informacion y pruebas
+
+app/Http/Controllers/PruebaTecnicaController
+
 
 ## Actualizacion de dependencia
 
